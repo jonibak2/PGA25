@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PG Awards 2025 💛</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: url('bg_tropic.jpg') no-repeat center top fixed;
+      background-size: cover;
+      color: #fff;
+      margin: 0;
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+      background-color: #ff8c00;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255, 140, 0, 0.6), rgba(255, 204, 0, 0.8));
+      z-index: 0;
+    }
+
+    .spotlight {
+      position: absolute;
+      width: 200px;
+      height: 100vh;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+      opacity: 0.5;
+      transform-origin: top center;
+      z-index: 0;
+    }
+
+    .spotlight:nth-child(1) {
+      left: 10%;
+      animation: sweep 8s infinite ease-in-out;
+    }
+
+    .spotlight:nth-child(2) {
+      left: 40%;
+      animation: sweep 10s infinite ease-in-out reverse;
+    }
+
+    .spotlight:nth-child(3) {
+      left: 70%;
+      animation: sweep 9s infinite ease-in-out;
+    }
+
+    @keyframes sweep {
+      0% { transform: rotate(-30deg); }
+      50% { transform: rotate(30deg); }
+      100% { transform: rotate(-30deg); }
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 4rem;
+      text-shadow: 0 0 20px rgba(255, 140, 0, 0.8), 0 0 40px rgba(255, 204, 0, 0.5);
+      animation: glow 2s ease-in-out infinite alternate;
+      position: relative;
+      z-index: 1;
+      color: #ffcc00;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 20px rgba(255, 140, 0, 0.8), 0 0 40px rgba(255, 204, 0, 0.5); }
+      to { text-shadow: 0 0 30px rgba(255, 140, 0, 1), 0 0 60px rgba(255, 204, 0, 0.7); }
+    }
+
+    .header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1;
+    }
+
+    .back-button,
+    .github-button {
+      padding: 0.5rem 1rem;
+      border: 2px solid #ffcc00; /* Жёлтая рамка */
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      background: #ff4500; /* Яркий оранжевый фон */
+      font-weight: bold; /* Жирный текст */
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); /* Чёрная тень для читаемости */
+      box-shadow: 0 0 15px rgba(255, 140, 0, 0.8), inset 0 0 5px rgba(255, 204, 0, 0.5); /* Яркая тень */
+      transition: all 0.3s ease;
+    }
+
+    .github-button {
+      font-size: 0.9rem;
+      padding: 0.3rem 0.8rem;
+    }
+
+    .back-button:hover,
+    .github-button:hover {
+      background: #ff8c00; /* Чуть светлее при наведении */
+      box-shadow: 0 0 20px rgba(255, 140, 0, 1);
+      transform: scale(1.05);
+    }
+
+    .vote-button {
+      position: relative;
+      z-index: 1;
+      padding: 2rem 4rem;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(135deg, #ffd700, #ff4500); /* Яркий жёлто-оранжевый градиент */
+      border: 4px solid #ffd700; /* Более толстая жёлтая рамка */
+      border-radius: 15px;
+      cursor: pointer;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Чёрная тень для текста */
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.9), inset 0 0 10px rgba(255, 140, 0, 0.5); /* Яркая тень */
+      transition: all 0.3s ease;
+    }
+
+    .vote-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(255, 215, 0, 1);
+      background: linear-gradient(135deg, #ffff00, #ff8c00); /* Ещё ярче при наведении */
+    }
+
+    .vote-button.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: not-allowed;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    .smilek-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .smilek-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .smilek-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    footer {
+      font-size: 1.2rem;
+      color: #ffcc00;
+      text-shadow: 0 0 15px rgba(255, 140, 0, 0.7);
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="spotlight"></div>
+  <div class="spotlight"></div>
+  <div class="spotlight"></div>
+
+  <div class="header-left">
+    <a href="https://jonibak2.github.io/pg78hub/" class="back-button">← Назад в хаб</a>
+    <a href="https://github.com/jonibak2" class="github-button">Мой GitHub</a>
+  </div>
+
+  <h1>PG Awards 2025 💛</h1>
+  
+  <button class="vote-button" id="voteButton">ГОЛОСОВАНИЕ</button>
+
+  <div class="smilek-overlay" id="smilekOverlay">
+    <img src="smilek.png" alt="Smilek">
+  </div>
+
+  <footer>© PG78 2025</footer>
+
+  <script>
+    const voteButton = document.getElementById('voteButton');
+    const smilekOverlay = document.getElementById('smilekOverlay');
+    const audio = new Audio('neco-arc.mp3');
+    let canClick = true;
+
+    voteButton.addEventListener('click', () => {
+      if (canClick) {
+        audio.currentTime = 0;
+        audio.play();
+
+        smilekOverlay.classList.add('active');
+        voteButton.classList.add('disabled');
+        canClick = false;
+
+        setTimeout(() => {
+          smilekOverlay.classList.remove('active');
+        }, 1000);
+
+        setTimeout(() => {
+          voteButton.classList.remove('disabled');
+          canClick = true;
+        }, 1500);
+      }
+    });
+  </script>
+</body>
+</html>
