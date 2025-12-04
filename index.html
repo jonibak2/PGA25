@@ -6,73 +6,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PG Awards 2025 💛</title>
   <style>
+    /* Ensure no page scrolling and that the background image is shown fully */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Disable scrolling */
+    }
     body {
       font-family: 'Georgia', serif;
-      background: url('bg_tropic.jpg') no-repeat center top fixed;
+      /* Stretch/crop the background so it fills the viewport edges */
+      background: url('background.png') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       margin: 0;
-      padding: 3rem;
+      padding: 0; /* Remove extra padding to avoid accidental scrolling */
       text-align: center;
       position: relative;
-      overflow-x: hidden;
-      background-color: #ff8c00;
       height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
     }
-
-    body::before {
-      content: '';
+    /* Centering wrapper for main title and vote button */
+    .content {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(180deg, rgba(255, 140, 0, 0.6), rgba(255, 204, 0, 0.8));
-      z-index: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      z-index: 1;
     }
-
-    .spotlight {
-      position: absolute;
-      width: 200px;
-      height: 100vh;
-      background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
-      opacity: 0.5;
-      transform-origin: top center;
-      z-index: 0;
-    }
-
-    .spotlight:nth-child(1) {
-      left: 10%;
-      animation: sweep 8s infinite ease-in-out;
-    }
-
-    .spotlight:nth-child(2) {
-      left: 40%;
-      animation: sweep 10s infinite ease-in-out reverse;
-    }
-
-    .spotlight:nth-child(3) {
-      left: 70%;
-      animation: sweep 9s infinite ease-in-out;
-    }
-
-    @keyframes sweep {
-      0% { transform: rotate(-30deg); }
-      50% { transform: rotate(30deg); }
-      100% { transform: rotate(-30deg); }
-    }
+    /* Removed decorative gradient overlay and spotlight animations so the page background
+       displays only the provided background image (background.png). */
 
     h1 {
-      font-size: 4rem;
-      margin-bottom: 4rem;
-      text-shadow: 0 0 20px rgba(255, 140, 0, 0.8), 0 0 40px rgba(255, 204, 0, 0.5);
+      font-size: 2.2rem; /* smaller title to match smaller button */
+      margin: 0;
+      text-shadow: 0 0 12px rgba(0,0,0,0.6);
       animation: glow 2s ease-in-out infinite alternate;
       position: relative;
       z-index: 1;
-      color: #ffcc00;
+      color: #ffffff; /* white text */
     }
 
     @keyframes glow {
@@ -120,17 +98,17 @@
     .vote-button {
       position: relative;
       z-index: 1;
-      padding: 2rem 4rem;
-      font-size: 2.5rem;
+      padding: 0.6rem 1.2rem; /* smaller button */
+      font-size: 1.1rem;
       font-weight: bold;
       color: #fff;
       background: linear-gradient(135deg, #ffd700, #ff4500);
-      border: 4px solid #ffd700;
-      border-radius: 15px;
+      border: 3px solid #ffd700;
+      border-radius: 10px;
       cursor: pointer;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.9), inset 0 0 10px rgba(255, 140, 0, 0.5);
-      transition: all 0.3s ease;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.9), inset 0 0 6px rgba(255, 140, 0, 0.5);
+      transition: all 0.2s ease;
     }
 
     .vote-button:hover {
@@ -175,26 +153,25 @@
 
     footer {
       font-size: 1.2rem;
-      color: #ffcc00;
-      text-shadow: 0 0 15px rgba(255, 140, 0, 0.7);
+      color: #ffffff; /* white */
+      text-shadow: 0 0 8px rgba(0,0,0,0.6);
       position: relative;
       z-index: 1;
     }
   </style>
 </head>
 <body>
-  <div class="spotlight"></div>
-  <div class="spotlight"></div>
-  <div class="spotlight"></div>
+  <!-- Removed decorative spotlight elements so background image displays cleanly -->
 
   <div class="header-left">
     <a href="https://jonibak2.github.io/pg78hub/" class="back-button">← Назад в хаб</a>
     <a href="https://github.com/jonibak2" class="github-button">Мой GitHub</a>
   </div>
 
-  <h1>PG Awards 2025 💛</h1>
-  
-  <button class="vote-button" id="voteButton">ГОЛОСОВАНИЕ</button>
+  <main class="content">
+    <h1>PG Awards 2025 ❤️‍🔥</h1>
+    <button class="vote-button" id="voteButton">ГОЛОСОВАНИЕ</button>
+  </main>
 
   <div class="smilek-overlay" id="smilekOverlay">
     <img src="smilek.png" alt="Smilek">
