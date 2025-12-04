@@ -4,7 +4,7 @@
   <link rel="icon" type="image/png" href="https://i.imgur.com/1sd499C.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PG Awards 2025 💛</title>
+  <title>PG Awards 2025 ❤️‍🔥</title>
   <style>
     /* Ensure no page scrolling and that the background image is shown fully */
     html, body {
@@ -101,20 +101,22 @@
       padding: 0.6rem 1.2rem; /* smaller button */
       font-size: 1.1rem;
       font-weight: bold;
-      color: #fff;
-      background: linear-gradient(135deg, #ffd700, #ff4500);
-      border: 3px solid #ffd700;
+      color: #ffffff; /* keep text white */
+      /* dark burgundy gradient */
+      background: linear-gradient(135deg, #3b0014 0%, #5a001f 100%);
+      border: 2px solid #4a0018;
       border-radius: 10px;
       cursor: pointer;
       text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-      box-shadow: 0 0 12px rgba(255, 215, 0, 0.9), inset 0 0 6px rgba(255, 140, 0, 0.5);
-      transition: all 0.2s ease;
+      /* subtle burgundy glow */
+      box-shadow: 0 6px 18px rgba(59, 0, 20, 0.5), inset 0 0 6px rgba(255, 255, 255, 0.03);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     }
 
     .vote-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px rgba(255, 215, 0, 1);
-      background: linear-gradient(135deg, #ffff00, #ff8c00);
+      transform: scale(1.06);
+      box-shadow: 0 10px 30px rgba(59, 0, 20, 0.65), inset 0 0 8px rgba(255,255,255,0.04);
+      background: linear-gradient(135deg, #5a001f 0%, #7a002b 100%); /* slightly lighter on hover */
     }
 
     .vote-button.disabled {
