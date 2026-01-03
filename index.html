@@ -172,7 +172,14 @@
 
   <main class="content">
     <h1>PG Awards 2025 ❤️‍🔥</h1>
-    <button class="vote-button" id="voteButton">ГОЛОСОВАНИЕ</button>
+    <a
+  href="https://forms.gle/hLRPvMkwHfYaKat9A"
+  class="vote-button"
+  target="_blank"
+>
+  ГОЛОСОВАНИЕ
+</a>
+
   </main>
 
   <div class="smilek-overlay" id="smilekOverlay">
@@ -180,33 +187,7 @@
   </div>
 
   <footer>© PG78 2025</footer>
-
-  <script>
-    const voteButton = document.getElementById('voteButton');
-    const smilekOverlay = document.getElementById('smilekOverlay');
-    const audio = new Audio('neco-arc.mp3');
-    let canClick = true;
-
-    voteButton.addEventListener('click', () => {
-      if (canClick) {
-        audio.currentTime = 0;
-        audio.play();
-
-        smilekOverlay.classList.add('active');
-        voteButton.classList.add('disabled');
-        canClick = false;
-
-        setTimeout(() => {
-          smilekOverlay.classList.remove('active');
-        }, 1000);
-
-        setTimeout(() => {
-          voteButton.classList.remove('disabled');
-          canClick = true;
-        }, 1500);
-      }
-    });
-  </script>
 </body>
 </html>
+
 
